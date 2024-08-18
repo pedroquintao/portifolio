@@ -5,7 +5,7 @@ const getLevels = (props) => {
     case 2: 
       return `
         background-color: transparent;
-        border: 1px solid white
+        border: 1px solid white;
       `;
     case 3:
       return `
@@ -14,7 +14,7 @@ const getLevels = (props) => {
       `;
     default:
       return `
-        background-color: ${props.$backgroundcolor || props.theme.colors.orange}
+        background-color: ${props.$backgroundcolor || props.theme.colors.orange};
       `;
   }
 };
@@ -22,19 +22,18 @@ const getLevels = (props) => {
 const ButtonStyle = styled.button`
   all: unset;
   margin: 0;
-  padding: 0;
+  padding: 0.5em 1em;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   gap: 1em;
-  
   border-radius: ${({ theme }) => theme.sizes.xs};
   height: ${(props) => props.height || "auto"};
   width: ${(props) => props.width || "none"};
   color: ${(props) => props.color || props.theme.colors.white};
-  ${(props) => {getLevels(props)}};
+  ${(props) => { return getLevels(props)}};
 
   > * {
     margin: 0
@@ -42,6 +41,7 @@ const ButtonStyle = styled.button`
 `;
 
 function Button({ height, width, color, $backgroundcolor, $level, children }) {
+    
   return (
     <ButtonStyle
       height={height}

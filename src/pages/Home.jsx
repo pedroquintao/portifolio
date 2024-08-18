@@ -16,7 +16,7 @@ function Home() {
         harum tempore est dolor libero in soluta deserunt.{" "}
       </Typography>
       <img src={logo} alt="logo-pedro-quintão"></img>
-      <Button $level={1}>
+      <Button $level="1">
         <p>Teste</p>
         <p>IMAGEM</p>
       </Button>
