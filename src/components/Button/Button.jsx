@@ -14,7 +14,7 @@ const getLevels = (props) => {
       `;
     default:
       return `
-        background-color: ${props.$backgroundcolor || props.theme.colors.orange};
+        background-color: ${props.$backgroundColor || props.theme.colors.orange};
       `;
   }
 };
@@ -28,6 +28,7 @@ const ButtonStyle = styled.button`
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-weight: 600;
   gap: 1em;
   border-radius: ${({ theme }) => theme.sizes.xs};
   height: ${(props) => props.height || "auto"};
@@ -40,14 +41,14 @@ const ButtonStyle = styled.button`
   }
 `;
 
-function Button({ height, width, color, $backgroundcolor, $level, children }) {
+function Button({ height, width, color, $backgroundColor, $level, children }) {
     
   return (
     <ButtonStyle
       height={height}
       width={width}
       color={color}
-      $backgroundcolor={$backgroundcolor}
+      $backgroundColor={$backgroundColor}
       $level={$level}
     >
       {children}

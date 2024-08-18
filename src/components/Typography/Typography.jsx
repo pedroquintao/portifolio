@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
-const sizeHandler = (props) => {
-    const styles = props.size && `font-size: ${props.size};`;
-    return styles;
+const sizingHandler = (props) => {
+  return {
+    size: props.size && `font-size: ${props.size}px`,
+    weight: props.weight && `font-weight: ${props.weight};`
+  };
 };
 
 const TypographyStyle = styled(({ tag: Tag, ...props }) => <Tag {...props} />)`
   color: ${({ color, theme }) => color || theme.colors.gray};
-  ${(props) => sizeHandler(props)}
+  ${(props) => sizingHandler(props).size};
+  ${(props) => sizingHandler(props).weight};
+  margin-top: 0;
+  margin-bottom: 0;
 `;
 
-function Typography({ tag = "h1", color, size, weight, children }) {
+function Typography({ tag = "p", color, size, weight, children }) {
   return (
     <TypographyStyle tag={tag} color={color} size={size} weight={weight}>
       {children}
